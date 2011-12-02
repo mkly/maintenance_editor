@@ -1,0 +1,7 @@
+1.0 Initial release
+1.0.1 Typo bugfix on dashboard form
+1.0.2 Typo Bugs
+1.0.3 Typo Bugs
+1.0.4 Changing config value to MAINENANCE_EDITOR_ENABLED
+  -   Added defined('C5_EXECUTE') to the top of all pages.
+1.0.5 Form update bug
