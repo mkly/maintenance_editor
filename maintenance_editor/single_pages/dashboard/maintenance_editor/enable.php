@@ -1,7 +1,7 @@
 <?php  defined('C5_EXECUTE') or die('Access Denied.'); ?>
 
 <?php if(version_compare(Config::get('SITE_APP_VERSION'), 5.5, 'lt')): ?>
-<div style="width: 680px">
+<div style="width: 580px">
 
 <h1><span><?php  echo t('Maintenance Editor') ?></span></h1>
 <div class="ccm-dashboard-inner">
@@ -27,7 +27,7 @@
 			<?php echo $form->checkbox('enabled', 'enabled', $enabled) ?>
 			<span><?php echo t('Enable Maintenance Editor') ?>?</span>
 		</div>
-		<div class="ccm-pane-body ccm-pane-body-footer">
+		<div class="ccm-pane-footer">
 			<?php echo $form->submit('update', t('Update Settings')); ?>
 		</div>
 	</form>

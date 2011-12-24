@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="PackageMaintenanceEditor">
+		<field name="id" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="use_custom_maintenance_page" type="I1">
+			<default value="0" />
+		</field>
+		<field name="custom_maintenance_page" type="I">
+			<default value="1" />	
+		</field>
+		<field name="access_allow_with_edit_permissions" type="I1">
+			<default value="1" />
+		</field>
+		<field name="access_allow_specific_group" type="I1">
+			<default value="0" />
+		</field>
+		<field name="access_group" type="I">
+			<default value="0" />
+		</field>
+		<field name="access_allow_registration" type="I1">
+			<default value="0" />
+		</field>
+	</table>
+	<sql>
+		<query>INSERT INTO PackageMaintenanceEditor (id,use_custom_maintenance_page,custom_maintenance_page,access_allow_with_edit_permissions,access_allow_specific_group,access_group,access_allow_registration) VALUES (1,0,1,1,0,3,0) ON DUPLICATE KEY UPDATE id=1,use_custom_maintenance_page=0,custom_maintenance_page=1,access_allow_with_edit_permissions=1,access_allow_specific_group=0,access_group=3,access_allow_registration=0</query> 
+	</sql>
+</schema>
+
