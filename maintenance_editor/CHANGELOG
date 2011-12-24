@@ -5,7 +5,7 @@
 1.0.4 Changing config value to MAINENANCE_EDITOR_ENABLED
   -   Added defined('C5_EXECUTE') to the top of all pages.
 1.0.5 Form update bug
-1.1 Dec, 2011
+1.0 Dec, 2011
   - Added Features
     - Can select custom page
     - Allow specific groups access
