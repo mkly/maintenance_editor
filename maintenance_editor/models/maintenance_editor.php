@@ -39,8 +39,21 @@ class MaintenanceEditor {
 			if(empty($_maintenance_loop_run)) {
 				$_maintenance_loop_run = true;
 				if($me->use_custom_maintenance_page) {
-					$maintenance_page = Page::getByID($me->custom_maintenance_page);
 					$maintenance_page_id = $me->custom_maintenance_page;
+					$maintenance_page = Page::getByID($me->custom_maintenance_page);
+
+					if(
+						$maintenance_page->isError()
+						||
+						!$maintenance_page->isActive()
+					) {
+						Log::addEntry(
+							t('Error: Custom maintenance page not found'),
+							'maintenance_editor'
+						);
+						$view->render('/maintenance_mode/');
+					}
+
 					$page = Page::getCurrentPage();
 					$page_id = $page->getCollectionID();
 
