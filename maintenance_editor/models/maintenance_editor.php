@@ -38,10 +38,17 @@ class MaintenanceEditor {
       }
 			if(empty($_maintenance_loop_run)) {
 				$_maintenance_loop_run = true;
-				$page = Page::getCurrentPage();
 				if($me->use_custom_maintenance_page) {
-					$page = Page::getByID($me->custom_maintenance_page);
-					$view->render($page);
+					$maintenance_page = Page::getByID($me->custom_maintenance_page);
+					$maintenance_page_id = $me->custom_maintenance_page;
+					$page = Page::getCurrentPage();
+					$page_id = $page->getCollectionID();
+
+					if($page_id == $maintenance_page_id) {
+						$view->render($page);
+					}
+					header('HTTP/1.1 503 Service Unavailable');
+					header('Location: ' . View::url($maintenance_page->getCollectionPath()));
 				} else {
 					$view->render('/maintenance_mode/');
 				}
