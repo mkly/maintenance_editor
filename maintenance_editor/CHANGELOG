@@ -10,3 +10,5 @@
     - Can select custom page
     - Allow specific groups access
     - Allow registration
+1.2 May, 2012
+  - Changed the method to redirect vs render
