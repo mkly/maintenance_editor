@@ -28,7 +28,8 @@ class DashboardMaintenanceEditorSelectPageController extends Controller {
 
 	protected function init() {
 		$this->set('form', Loader::helper('form'));
-		$this->set('page_selector_form', Loader::helper('form/page_selector', 'maintenance_editor'));
+		//$this->set('page_selector_form', Loader::helper('form/page_selector', 'maintenance_editor'));
+		$this->set('page_selector_form', Loader::helper('form/page_selector'));
 		Loader::model('maintenance_editor', 'maintenance_editor');
 		$me = new MaintenanceEditor();
 		$me->load();
