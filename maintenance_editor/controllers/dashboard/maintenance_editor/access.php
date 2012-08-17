@@ -1,4 +1,5 @@
-<?php defined('C5_EXECUTE') or die('Access Denied.');
+<?php
+defined('C5_EXECUTE') or die('Access Denied.');
 
 class DashboardMaintenanceEditorAccessController extends Controller {
 
@@ -21,6 +22,7 @@ class DashboardMaintenanceEditorAccessController extends Controller {
 		$this->init();
 		$this->set('message', t('Settings Updated'));
 	}
+
 	protected function init() {
 		$this->set('form', Loader::helper('form'));
 		$this->set('group_selector_form', Loader::helper('form/group_selector', 'maintenance_editor'));
@@ -31,5 +33,5 @@ class DashboardMaintenanceEditorAccessController extends Controller {
 		$this->set('access_allow_specific_group', $me->access_allow_specific_group);
 		$this->set('access_group', $me->access_group);
 	}
-	
+
 }

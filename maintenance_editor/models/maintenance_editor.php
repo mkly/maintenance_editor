@@ -1,4 +1,4 @@
-<?php   
+<?php
 defined('C5_EXECUTE') or die('Access Denied.');
 
 class MaintenanceEditor {
@@ -7,8 +7,8 @@ class MaintenanceEditor {
 	public static $custom_maintenance_page;
 	public static $access_allow_with_edit_permissions;
 	public static $access_allow_specific_group;
-  public static $access_group;
-  public static $access_allow_registration;
+	public static $access_group;
+	public static $access_allow_registration;
 
 	public function checkForMaintenance($view) {
 		$pkg = Package::getByHandle('maintenance_editor');
@@ -16,26 +16,26 @@ class MaintenanceEditor {
 			global $_maintenance_loop_run;
 			$page = Page::getCurrentPage();
 			$perms = new Permissions($page);
-      $user = new User();
+			$user = new User();
 			$me = new MaintenanceEditor;
 			$me->load();
 			/* checks */
 			if($page->isAdminArea())
 				return true;
 			if($page->getCollectionPath() == '/login')
-        return true;
-      if($me->access_allow_registration &&
-        $page->getCollectionPath() == '/register')
-          return true;
+				return true;
+			if($me->access_allow_registration &&
+				$page->getCollectionPath() == '/register')
+					return true;
 			if($me->access_allow_with_edit_permissions &&
-        $perms->canWrite())
-          return true;
-      if($me->access_allow_specific_group) {
-        Loader::model('group');
-        $group = Group::getByID($me->access_group);
-        if(is_object($user) && $user->inGroup($group))
-          return true;
-      }
+				$perms->canWrite())
+					return true;
+			if($me->access_allow_specific_group) {
+				Loader::model('group');
+				$group = Group::getByID($me->access_group);
+				if(is_object($user) && $user->inGroup($group))
+					return true;
+			}
 			if(empty($_maintenance_loop_run)) {
 				$_maintenance_loop_run = true;
 				if($me->use_custom_maintenance_page) {
@@ -86,4 +86,3 @@ class MaintenanceEditor {
 	}
 
 }
-?>

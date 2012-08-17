@@ -1,4 +1,5 @@
-<?php defined('C5_EXECUTE') or die('Access Denied.');
+<?php
+defined('C5_EXECUTE') or die('Access Denied.');
 
 class DashboardMaintenanceEditorSelectPageController extends Controller {
 
@@ -38,5 +39,5 @@ class DashboardMaintenanceEditorSelectPageController extends Controller {
 		}
 		$this->set('custom_maintenance_page', $me->custom_maintenance_page);
 	}
-	
+
 }

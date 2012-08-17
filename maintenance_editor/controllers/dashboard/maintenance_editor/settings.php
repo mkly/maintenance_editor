@@ -1,11 +1,12 @@
-<?php defined('C5_EXECUTE') or die('Access Denied.');
+<?php
+defined('C5_EXECUTE') or die('Access Denied.');
 
 class DashboardMaintenanceEditorSettingsController extends Controller {
 
 	public function view() {
 		$this->init();
 	}
-	
+
 	public function init() {
 		$this->set('form', Loader::helper('form'));
 		Loader::model('maintenance_editor', 'maintenance_editor');
