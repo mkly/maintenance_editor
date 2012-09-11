@@ -31,7 +31,6 @@ class MaintenanceEditor {
 				$perms->canWrite())
 					return true;
 			if($me->access_allow_specific_group) {
-				Loader::model('group');
 				$group = Group::getByID($me->access_group);
 				if(is_object($user) && $user->inGroup($group))
 					return true;
