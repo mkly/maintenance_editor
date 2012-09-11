@@ -5,7 +5,7 @@ class MaintenanceEditorPackage extends Package {
 
 	protected $pkgHandle = 'maintenance_editor';
 	protected $appVersionRequired = '5.4.1';
-	protected $pkgVersion = '1.2';
+	protected $pkgVersion = '1.2.1';
 
 	public function getPackageDescription() {
 		return t("Allow users with edit permissions to view and edit pages while in maintenance mode.");
