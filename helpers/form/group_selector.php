@@ -4,7 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class FormGroupSelectorHelper {
 
 	public function selectGroup($name, $selected = false, $tagAttributes = false) {
-		Loader::model('group_list');
+		Loader::model('groups');
 		$form = Loader::helper('form');
 		$gl = new GroupList(false, false, true);
 		$groups = $gl->getGroupList();
