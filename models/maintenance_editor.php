@@ -14,6 +14,7 @@ class MaintenanceEditor {
 		$pkg = Package::getByHandle('maintenance_editor');
 		if($pkg->config('MAINTENANCE_EDITOR_ENABLED')) {
 			global $_maintenance_loop_run;
+			$user = new User;
 			$page = Page::getCurrentPage();
 			$perms = new Permissions($page);
 			$user = new User();
@@ -32,8 +33,17 @@ class MaintenanceEditor {
 					return true;
 			if($me->access_allow_specific_group) {
 				$group = Group::getByID($me->access_group);
-				if(is_object($user) && $user->inGroup($group))
+				if(
+					$user->inGroup($group)
+					||
+					(
+						$group->getGroupName() === 'Registered Users'
+						&&
+						$user->isRegistered()
+					)
+				) {
 					return true;
+				}
 			}
 			if(empty($_maintenance_loop_run)) {
 				$_maintenance_loop_run = true;
