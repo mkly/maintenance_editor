@@ -12,3 +12,5 @@
     - Allow registration
 1.2 May, 2012
   - Changed the method to redirect vs render
+1.2.2 Feb, 2013
+  - Fix Register Users check
